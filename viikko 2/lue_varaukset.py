@@ -24,14 +24,52 @@ def main():
     with open(varaukset, "r", encoding="utf-8") as f:
         varaus = f.read().strip()
 
+    varaus = varaus.split('|')
+
+    varausnumero = int (varaus[0])
+    varaaja = varaus[1]
+    from datetime import datetime
+    paiva = datetime.strptime(varaus[2], "%Y-%m-%d").date()
+    suomalainenPaiva = paiva.strftime("%d.%m.%Y")
+    aika = datetime.strptime(varaus[3], "%H:%M").time()
+    suomalainenAika = aika.strftime("%H.%M")
+    tuntimaara = int(varaus[4])
+    tuntihinta = float(varaus[5])
+    kokonaishinta = tuntimaara * tuntihinta
+    maksettu = bool(varaus[6])
+    kohde = varaus[7]
+    puhelin = (varaus[8])
+    sahkoposti = varaus[9]
+
+    print("Varausnumero:",varausnumero)
+    print("Varaaja:" , varaaja)
+    print("Päivämäärä:", suomalainenPaiva)
+    print("Aloitusaika:",suomalainenAika)
+    print("Tuntimäärä:", tuntimaara)
+    print("Tuntihinta:", tuntihinta,"€")
+    print("Kokonaishinta", kokonaishinta,"€")
+    print(f"Maksettu: {'Kyllä' if maksettu else 'Ei'}")
+    print("Kohde:", kohde)
+    print("Puhelin:", puhelin)
+    print("Sähköposti:", sahkoposti)
+
+
+    #print(suomalainenAika)
+    #print(suomalainenPaiva)
+    #print(tuntimaara)
+    #print("Kokonaishinta:",kokonaishinta)
+    #print(maksettu)
+    #print(kohde)
+
+    #print(type(varausnumero))
     # Tulostetaan varaus konsoliin
-    print(varaus)
+    #print(varaus)
 
     # Kokeile näitä
     #print(varaus.split('|'))
     #varausId = varaus.split('|')[0]
     #print(varausId)
-    #print(type(varausId))
+    #print(type(tuntimaara))
     """
     Edellisen olisi pitänyt tulostaa numeron 123, joka
     on oletuksena tekstiä.
