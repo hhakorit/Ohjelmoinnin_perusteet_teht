@@ -47,7 +47,7 @@ def main():
     print("Aloitusaika:",suomalainenAika)
     print("Tuntimäärä:", tuntimaara)
     print("Tuntihinta:", tuntihinta,"€")
-    print("Kokonaishinta", kokonaishinta,"€")
+    print("Kokonaishinta:", kokonaishinta,"€")
     print(f"Maksettu: {'Kyllä' if maksettu else 'Ei'}")
     print("Kohde:", kohde)
     print("Puhelin:", puhelin)
